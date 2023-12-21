@@ -1,13 +1,21 @@
 package com.example.demo2.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-public class cliente {
+import jakarta.persistence.ManyToMany;
+
+
+@Entity
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
@@ -19,11 +27,20 @@ public class cliente {
     @Column(nullable = false)
     private String email;
 
-    @Column(columnDefinition="DATE")
     private Date idade;
 
-    @Column(nullable = false)
-    private String cep;
+    private String residencia;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @jakarta.persistence.JoinTable(name = "usuario_endereco",
+               joinColumns = @jakarta.persistence.JoinColumn(name = "usuario_id"),
+               inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "endereco_id"))
+    private Set<Endereco> enderecos = new HashSet<>();
+
+    public Set<Endereco> getEnderecos() {
+        return enderecos;
+    }
+    
 
     public long getId() {
         return id;
@@ -57,12 +74,13 @@ public class cliente {
         this.idade = idade;
     }
 
-    public String getCep() {
-        return cep;
+            public String getResidencia() {
+        return residencia;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setResidencia(String residencia) {
+        this.residencia = residencia;
     }
+  
 
 }

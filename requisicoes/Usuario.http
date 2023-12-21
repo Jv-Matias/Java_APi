@@ -1,0 +1,51 @@
+GET http://localhost:8081/api/usuario
+###
+
+GET http://localhost:8081/api/usuario/8
+###
+
+POST http://localhost:8081/api/usuario
+Content-Type: application/json
+
+{
+    "nome": "Carlos Pereira",
+    "email": "carlos@gmail.com",
+    "idade": "1980-12-08",
+    "enderecos": [
+        {
+            "cep": "04578120",
+            "bairro": "Itaim Bibi",
+            "numero": 789,
+            "cidade": "São Paulo",
+            "estado": "SP",
+            "rua": "Avenida Brigadeiro Faria Lima",
+            "complemento": "Sala 1501"
+        },
+        {
+            "cep": "01311000",
+            "bairro": "Bela Vista",
+            "numero": 456,
+            "cidade": "São Paulo",
+            "estado": "SP",
+            "rua": "Avenida Paulista",
+            "complemento": "Andar 10"
+        }
+    ]
+}
+
+
+
+###
+PUT http://localhost:8081/api/usuario/1
+Content-Type: application/json
+
+{
+    "nome": "Novo Nome",
+    "email": "novoemail@gmail.com",
+    "idade": "1990-01-01",
+    "residencia": "Apartamento"
+}
+
+###
+
+DELETE  http://localhost:8081/api/usuario/8

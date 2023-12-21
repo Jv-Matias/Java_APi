@@ -1,0 +1,27 @@
+GET HTTP://localhost:8081/api/familia
+
+###
+GET HTTP://localhost:8081/api/familia/1
+
+###
+
+POST HTTP://localhost:8081/api/familia
+Content-Type: application/json
+
+{
+    "nome": "Chuveiro"
+}
+
+PUT HTTP://localhost:8081/api/familia/1
+Content-Type: application/json
+{
+    "nome": "Ferramentas"
+}
+
+###
+
+
+GET http://localhost:8081/api/familia/3/mercadorias
+Content-Type: application/json
+
+

@@ -13,50 +13,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo2.model.cliente;
-import com.example.demo2.service.ClienteService;
+import com.example.demo2.model.Endereco;
+import com.example.demo2.service.EnderecoService;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("api/endereco")
 @CrossOrigin("*")
-public class ClienteController {
-
+public class EnderecoController {
     @Autowired
-    private ClienteService clienteService;
+    private EnderecoService enderecoService;
   
     
     @GetMapping
-    public List<cliente> obtertodos(){
+    public List <Endereco> obtertodos(){
         
-        return clienteService.obtertodos();
+        return enderecoService.obtertodos();
     }
 
 
     @GetMapping("/{id}")
-    public cliente obterPorId(@PathVariable Long id){
+    public Endereco obterPorId(@PathVariable Long id){
 
-        return clienteService.obterPorId(id);
+        return enderecoService.obterPorId(id);
 
     }
 
 
    @PostMapping 
-public cliente Cadastrar(@RequestBody cliente cliente){
+public Endereco Cadastrar(@RequestBody Endereco endereco){
 
-    return clienteService.Cadastrar(cliente);
+    return enderecoService.Cadastrar(endereco);
 }
 
 
    @PutMapping ("/{id}")
-public cliente Atualizar(@PathVariable Long id, @RequestBody cliente cliente){
+public Endereco Atualizar(@PathVariable Long id, @RequestBody Endereco endereco){
 
-    return clienteService.Atualizar(id, cliente);
+    return enderecoService.Atualizar(id, endereco);
 }
 
 @DeleteMapping("/{id}")
 public void Deletar(@PathVariable Long id){
-    clienteService.Deletar(id);
+  enderecoService.Deletar(id);
 
 }
-
 }

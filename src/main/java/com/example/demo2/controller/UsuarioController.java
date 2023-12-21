@@ -13,48 +13,50 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo2.model.produto;
-import com.example.demo2.service.ProdutoService;
+import com.example.demo2.model.Usuario;
+import com.example.demo2.service.UsuarioService;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("api/usuario")
 @CrossOrigin("*")
-public class ProdutoController {
+public class UsuarioController {
+
     @Autowired
-    private ProdutoService produtoService;
+    private UsuarioService usuarioService;
   
     
     @GetMapping
-    public List <produto> obtertodos(){
+    public List<Usuario> obtertodos(){
         
-        return produtoService.obtertodos();
+        return usuarioService.obtertodos();
     }
 
 
     @GetMapping("/{id}")
-    public produto obterPorId(@PathVariable Long id){
+    public Usuario obterPorId(@PathVariable Long id){
 
-        return produtoService.obterPorId(id);
+        return usuarioService.obterPorId(id);
 
     }
 
 
    @PostMapping 
-public produto Cadastrar(@RequestBody produto produto){
+public Usuario Cadastrar(@RequestBody Usuario usuario){
 
-    return produtoService.Cadastrar(produto);
+    return usuarioService.Cadastrar(usuario);
 }
 
 
    @PutMapping ("/{id}")
-public produto Atualizar(@PathVariable Long id, @RequestBody produto produto){
+public Usuario Atualizar(@PathVariable Long id, @RequestBody Usuario usuario){
 
-    return produtoService.Atualizar(id, produto);
+    return usuarioService.Atualizar(id, usuario);
 }
 
 @DeleteMapping("/{id}")
 public void Deletar(@PathVariable Long id){
-  produtoService.Deletar(id);
+    usuarioService.Deletar(id);
 
 }
+
 }

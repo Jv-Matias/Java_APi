@@ -1,0 +1,20 @@
+GET HTTP://localhost:8081/api/endereco
+
+###
+GET HTTP://localhost:8081/api/endereco/1
+
+###
+
+POST http://localhost:8081/api/endereco
+Content-Type: application/json
+
+{
+  "cep": "998898766",
+    "bairro": "Aterrado",
+    "numero": "456",
+    "cidade": "Volta Redonda",
+    "estado": "Rio de Janeiro",
+    "rua": "Rua 20 de Marco",
+    "complemento": "Bloco C"
+    
+}

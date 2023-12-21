@@ -1,0 +1,40 @@
+GET HTTP://localhost:8081/api/mercadoria
+###
+
+GET HTTP://localhost:8081/api/mercadoria/7
+###
+
+POST HTTP://localhost:8081/api/mercadoria
+Content-Type: application/json
+
+{
+    "descricao":"Martelo",
+
+"valor":30.40,
+
+"familia":{
+    "id":1
+}
+ 
+
+}
+
+###
+PUT HTTP://localhost:8081/api/mercadoria/7
+Content-Type: application/json
+
+{
+    "descricao": "Disjuntor Tripolar 125A",
+    "medida": "UNIDADE",
+    "valor": 120.0,
+}
+
+###
+
+DELETE  HTTP://localhost:8081/api/mercadoria/2
+
+
+###
+
+
+
